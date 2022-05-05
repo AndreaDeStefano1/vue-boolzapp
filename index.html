@@ -5,10 +5,86 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous'/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <title>Boolzapp</title>
 </head>
 <body>
 
+  <div class="green-bar"></div>
+  <div id="app" class="container debug">
+    <!-- Colonna di sinistra -->
+    <div class="left-col ">
+      <!-- User -->
+      <div class="user-container ">
+        <!-- Immagine Utente e nome -->
+        <div class="user-details">
+          <img src="img/avatar_1.jpg" alt="">
+          <span> Nome Utente </span>
+        </div>
+        <!-- Icone -->
+        <div class="user-option">
+          <i class="fa-solid fa-circle-notch"></i>
+          <i class="fa-solid fa-message"></i>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        
+        
+      </div>
+      <!-- Notifiche -->
+      <div class="notify-container ">
+        <div class="notify-status">
+          <i class="fa-solid fa-bell-slash"></i>
+        </div>
+        <div class="notify-text">
+          <h5>Ricevi notifiche di nuovi messaggi</h5>
+          <span>Attiva notifiche desktop</span>
+        </div>
+      </div>
+      
+      <!-- Search bar -->
+      <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Cerca o inizia una nuova chat">
+      </div>
+
+      <!-- Recent Chat -->
+      <div class="chat-container">
+      
+        <div class="chat" v-for="(user,index) in users">
+
+          <div class="chat-photo">
+
+            <img :src="`img/avatar${user.avatar}.jpg`" alt="">
+          </div>
   
+          <div class="chat-text">
+            <span class="chat-name">{{user.name}}</span> 
+            <span v-for="(text,index) in user.messages" class="last-message" v-if="index == [user.messages.length - 1]">{{text.message}}</span>
+          </div>
+  
+          <div class="last-message-date" v-for="(date,index) in user.messages" v-if="index == [user.messages.length - 1]">
+            <span>{{date.date}}</span>
+
+          </div>
+
+        </div>
+        
+      </div>
+      
+    </div>
+
+
+    <!-- Colonna di destra -->
+
+    <div class="right-col debug">
+
+    </div>
+
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,3 +1,156 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
 .debug{
   border: 1px solid red;
+  background-color: rgba(0, 255, 255, 0.171);
+}
+.green-bar{
+  height: 15vh;
+  background-color: rgb(36, 151, 136);
+}
+.container{
+  position: absolute;
+  display: flex;
+  height: 85vh;
+  width: 80vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  
+}
+.left-col{
+  background-color: rgb(251, 251, 250);
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.right-col{
+  height: 100%;
+  width: 60%;
+  display: flex;
+}
+
+
+/* SINISTRA */
+/* user */
+.user-container{
+  display: flex;
+  align-items: center;
+  height: 10%;
+  width: 100%;
+  justify-content: space-between;
+  
+  background-color: rgb(234, 234, 234);
+}
+.user-details{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+.user-details img{
+  height: 7vh;
+  width: 7vh;
+  border-radius: 50%;
+}
+.user-option{
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+.user-option i{
+  color: rgb(176, 177, 177);
+}
+/*  notifiche */
+.notify-container{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+  background-color: rgb(142, 218, 252);
+}
+.notify-status{
+  height: 7vh;
+  width: 7vh;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+}
+.notify-status i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(142, 218, 252);
+}
+.notify-text h5{
+  font-size: 10px;
+}
+.notify-text span{
+  text-decoration: underline;
+  color: rgb(103, 106, 108);
+  font-size: 10px;
+}
+/* barra di ricerca */
+.search-container{
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  margin: 5px;  
+}
+.search-container input{
+  width: 80%;
+  border: none;
+  margin-right: 8px;
+  font-size: 13px;
+}
+.search-container i{
+  font-size: 13px;
+  color: rgb(103, 106, 108);
+}
+
+/* chat */
+.chat-container{
+  overflow: auto;
+}
+.chat{
+  padding: 3px;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 1px;
+  display: flex;
+  align-items: center;
+}
+.chat-container img{
+  height: 7vh;
+  width: 7vh;
+  border-radius: 50%;
+}
+.chat-text span{
+  display: block;
+}
+.chat-text{
+  padding-left: 10px;
+  
+}
+.chat-name{
+  font-size: 13px;
+}
+.last-message{
+  font-size: 7px;
+  color: rgb(103, 106, 108);
+}
+.last-message-date{
+  font-size: 7px;
+  text-align: end;
+  flex-grow: 1;
+  align-self: flex-start;
+  padding: 5px;
+  
 }
