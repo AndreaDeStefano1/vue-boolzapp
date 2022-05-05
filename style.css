@@ -78,7 +78,7 @@
 .user-option{
   padding: 10px;
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 .user-option i,
 .message-bar i{
@@ -107,12 +107,12 @@
   color: rgb(142, 218, 252);
 }
 .notify-text h5{
-  font-size: 10px;
+  font-size: 20px;
 }
 .notify-text span{
   text-decoration: underline;
   color: rgb(103, 106, 108);
-  font-size: 10px;
+  font-size: 20px;
 }
 /* barra di ricerca */
 .search-container{
@@ -125,10 +125,10 @@
   width: 80%;
   border: none;
   margin-right: 8px;
-  font-size: 13px;
+  font-size: 20px;
 }
 .search-container i{
-  font-size: 13px;
+  font-size: 20px;
   color: rgb(103, 106, 108);
 }
 
@@ -156,14 +156,14 @@
   
 }
 .chat-name{
-  font-size: 13px;
+  font-size: 20px;
 }
 .last-message{
-  font-size: 7px;
+  font-size: 13px;
   color: rgb(103, 106, 108);
 }
 .last-message-date{
-  font-size: 7px;
+  font-size: 13px;
   text-align: end;
   flex-grow: 1;
   align-self: flex-start;
@@ -174,7 +174,7 @@
 /* utente attivo */
 .right-col .user-container .user-details span{
   display: block;
-  font-size: 0.5rem;
+  font-size:1.5rem;
 }
 
 /* campo dei messaggi */
@@ -186,12 +186,11 @@
   padding: 10px;
 }
 
-.message{
-  border: 1px solid red;
+.message{  
   margin: 10px 0;
   width: max-content;
   max-width: 60%;
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -206,23 +205,27 @@
 }
 .message span{
   align-self: flex-end;
-  font-size: 5px;
+  font-size: 10px;
 }
 .message p{
-  font-size: 12px;
+  font-size: 20px;
 }
 
 /* sezione messaggi */
 .message-bar{
   height: 10%;
   display: flex;
-  padding: 5px;
+  padding: 10px;
   align-items: center;
   background-color: rgb(234, 234, 234);
 }
 .message-bar input{
   flex-grow: 1;
-  margin: 0 5px;
+  margin: 0 10px;
   border:1.5px solid rgb(1, 122, 255);
   border-radius: 5px;
+  height: 50%;
+}
+ i{
+  font-size: 35px;
 }
