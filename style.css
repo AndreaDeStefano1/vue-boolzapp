@@ -4,6 +4,19 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
+::-webkit-scrollbar {
+  width: 5px;               /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: white;        /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(194, 194, 194);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgb(194, 194, 194);  /* creates padding around scroll thumb */
+}
 .debug{
   border: 1px solid red;
   background-color: rgba(0, 255, 255, 0.171);
@@ -20,7 +33,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: black;
+  
   
 }
 .left-col{
@@ -29,23 +42,25 @@
   width: 40%;
   display: flex;
   flex-direction: column;
+  
 }
 .right-col{
   height: 100%;
   width: 60%;
   display: flex;
+  flex-direction: column;
 }
 
 
 /* SINISTRA */
 /* user */
 .user-container{
+  border-right: .1px solid grey;
   display: flex;
   align-items: center;
   height: 10%;
   width: 100%;
-  justify-content: space-between;
-  
+  justify-content: space-between;  
   background-color: rgb(234, 234, 234);
 }
 .user-details{
@@ -65,7 +80,8 @@
   display: flex;
   gap: 10px;
 }
-.user-option i{
+.user-option i,
+.message-bar i{
   color: rgb(176, 177, 177);
 }
 /*  notifiche */
@@ -116,7 +132,7 @@
   color: rgb(103, 106, 108);
 }
 
-/* chat */
+
 .chat-container{
   overflow: auto;
 }
@@ -153,4 +169,60 @@
   align-self: flex-start;
   padding: 5px;
   
+}
+/* RIGHT SIDE */
+/* utente attivo */
+.right-col .user-container .user-details span{
+  display: block;
+  font-size: 0.5rem;
+}
+
+/* campo dei messaggi */
+.chatbox{
+  height: calc(100% - 20%);
+  background-image: url(img/mine.jpg);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.message{
+  border: 1px solid red;
+  margin: 10px 0;
+  width: max-content;
+  max-width: 60%;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.message.sent{
+  background-color: rgb(213, 250, 186);
+  align-self: flex-end;
+}
+.message.recived{
+  background-color: rgb(255, 254, 255);
+  align-self: flex-start;
+}
+.message span{
+  align-self: flex-end;
+  font-size: 5px;
+}
+.message p{
+  font-size: 12px;
+}
+
+/* sezione messaggi */
+.message-bar{
+  height: 10%;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  background-color: rgb(234, 234, 234);
+}
+.message-bar input{
+  flex-grow: 1;
+  margin: 0 5px;
+  border:1.5px solid rgb(1, 122, 255);
+  border-radius: 5px;
 }
