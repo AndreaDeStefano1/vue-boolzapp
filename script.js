@@ -173,7 +173,23 @@ const app = new Vue({
         ],
       }
     ],
-    activeUserIndex: 0
+    activeUserIndex: 0,
+    newUserMessage: {
+      date: '00/00/0000 00:00:00',
+      message: '',
+      status: 'sent'
+    },
+    newText: '',
+    flagVis: false
   },
-  
+  methods: {
+    addMessage(messaggio){
+      this.users[this.activeUserIndex].messages.push({date: '00/00/0000 00:00:00', message: `${messaggio}` ,status: 'sent'});
+      this.newText = '';
+      setTimeout(() => {
+         this.users[this.activeUserIndex].messages.push({date: '00/00/0000 00:00:00', message: 'ok' ,status: 'received'})
+      },1000); 
+      // perche se scrivo setTimeout(function() {}, 1000) non funzuiona??
+    }    
+  },
 })

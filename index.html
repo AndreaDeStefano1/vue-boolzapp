@@ -103,22 +103,22 @@
       <!-- area dei messaggi -->
       <div class="chatbox"  v-for="(user,index) in users" v-if="index == activeUserIndex">
 
-        <div class="message" :class="text.status == 'sent' ? 'sent' : 'recived' " v-for="text in user.messages"> 
+        <div class="message" :class="text.status == 'sent' ? 'sent' : 'received' " v-for="text in user.messages"> 
           <p>{{text.message}}</p>
           <span>{{text.date}}</span>
-          <i class="fa-solid fa-chevron-down"></i>
-          <div class="hidden-box">
-            <span>Info</span>
-            <span>Cancella Messaggio</span>
+          <i class="fa-solid fa-chevron-down" ></i>
+          <!-- <div  class="drop-down-box">
+            <small>Info</small>
+            <small>Cancella Messaggio</small>
           </div>
-        </div>
+        </div> -->
 
 
       </div>
 
       <div class="message-bar">
         <i class="fa-solid fa-face-smile"></i>
-        <input type="text" placeholder="Scrivi un messaggio">
+        <input v-model.trim="newText" @keyup.enter="addMessage(newText)" type="text" placeholder="Scrivi un messaggio">
         <i class="fa-solid fa-microphone"></i>
       </div>
 

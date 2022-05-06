@@ -5,7 +5,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 ::-webkit-scrollbar {
-  width: 5px;               /* width of the entire scrollbar */
+  width: 5px;              /* width of the entire scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -27,7 +27,7 @@ body{
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: rgb(255,255,255);
+  /* background: rgb(255,255,255); */
   background: linear-gradient( to bottom, rgb(0, 138, 125) 20%, rgba(255,255,255) 0%);
   
 }
@@ -204,7 +204,7 @@ body{
   background-color: rgb(213, 250, 186);
   align-self: flex-end;
 }
-.message.recived{
+.message.received{
   background-color: rgb(255, 254, 255);
   align-self: flex-start;
 }
@@ -227,6 +227,30 @@ body{
 .message:hover .fa-chevron-down{
   display: block;
 }
+ /* .drop-down-box{
+  padding: 10px 0;
+  position: absolute;
+  top: 25px;
+  right: -20px;
+  width: max-content;
+  height: max-content;
+  background-color: white;
+  border: 1px solid black;
+  z-index: 1;
+  display: none;
+}
+.drop-down-box small{
+  display: block;
+  text-align: center;
+  line-height: 25px;
+}
+.drop-down-box small:hover{
+  background-color: rgb(216, 215, 215);
+} 
+.fa-chevron-down:focus-within .drop-down-box{
+  display: block;
+} */
+
 
 /* sezione messaggi */
 .message-bar{
