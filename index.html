@@ -48,13 +48,13 @@
       <!-- Search bar -->
       <div class="search-container">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Cerca o inizia una nuova chat">
+        <input type="text" v-model.trim='searchInput' @keyup="filteredUsers"  placeholder="Cerca o inizia una nuova chat">
       </div>
 
       <!-- Recent Chat -->
       <div class="chat-container">
       
-        <div class="chat" v-for="(user,index) in users" @click="activeUserIndex = index">
+        <div class="chat" v-for="(user,index) in users" v-if="user.visible" @click="activeUserIndex = index">
 
           <div class="chat-photo">
 
@@ -110,8 +110,8 @@
           <!-- <div  class="drop-down-box">
             <small>Info</small>
             <small>Cancella Messaggio</small>
-          </div>
-        </div> -->
+          </div> -->
+        </div> 
 
 
       </div>
