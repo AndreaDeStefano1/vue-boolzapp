@@ -21,18 +21,22 @@
   border: 1px solid red;
   background-color: rgba(0, 255, 255, 0.171);
 }
-.green-bar{
-  height: 15vh;
-  background-color: rgb(36, 151, 136);
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(255,255,255);
+  background: linear-gradient( to bottom, rgb(0, 138, 125) 20%, rgba(255,255,255) 0%);
+  
 }
 .container{
-  position: absolute;
+  
   display: flex;
   height: 85vh;
   width: 80vw;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
   
   
 }
@@ -134,7 +138,7 @@
 
 
 .chat-container{
-  overflow: auto;
+  overflow-y: scroll;
 }
 .chat{
   padding: 3px;
@@ -194,6 +198,7 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .message.sent{
   background-color: rgb(213, 250, 186);
@@ -209,6 +214,18 @@
 }
 .message p{
   font-size: 20px;
+  margin-right: 20px;
+}
+.message .fa-chevron-down{
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  font-size: 15px;
+  color: rgb(103, 106, 108);
+  display: none;
+}
+.message:hover .fa-chevron-down{
+  display: block;
 }
 
 /* sezione messaggi */

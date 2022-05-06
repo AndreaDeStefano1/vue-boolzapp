@@ -54,7 +54,7 @@
       <!-- Recent Chat -->
       <div class="chat-container">
       
-        <div class="chat" v-for="(user,index) in users">
+        <div class="chat" v-for="(user,index) in users" @click="activeUserIndex = index">
 
           <div class="chat-photo">
 
@@ -84,11 +84,11 @@
 
       <div class="user-container ">
         <!-- Immagine chat attiva e ultimo accesso -->
-        <div class="user-details">
-          <img src="img/avatar_1.jpg" alt="">
+        <div class="user-details" v-for="(user,index) in users" v-show="index == activeUserIndex">
+          <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
           <div class="user-last-login">
             
-            <span> Nome Utente </span>
+            <span> {{user.name}} </span>
             <span>Ultimo acesso</span>
           </div>
         </div>
@@ -100,17 +100,19 @@
         </div>
       </div>
 
-      <div class="chatbox">
-        <div class="message sent"> 
-          <p>Ciao come stai?
-          </p>
-          <span>10/10/20</span>
+      <!-- area dei messaggi -->
+      <div class="chatbox"  v-for="(user,index) in users" v-if="index == activeUserIndex">
+
+        <div class="message" :class="text.status == 'sent' ? 'sent' : 'recived' " v-for="text in user.messages"> 
+          <p>{{text.message}}</p>
+          <span>{{text.date}}</span>
+          <i class="fa-solid fa-chevron-down"></i>
+          <div class="hidden-box">
+            <span>Info</span>
+            <span>Cancella Messaggio</span>
+          </div>
         </div>
-        <div class="message recived"> 
-          <p>Ciao come stai?
-          </p>
-          <span>10/10/20</span>
-        </div>
+
 
       </div>
 

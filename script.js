@@ -172,7 +172,8 @@ const app = new Vue({
           }
         ],
       }
-    ]
+    ],
+    activeUserIndex: 0
   },
   
 })
