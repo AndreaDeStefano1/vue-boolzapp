@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.8/dayjs.min.js' integrity='sha512-kZ+x2gdehn6OZMWZSp3Vt5R+v9hQTYEATQwaUfWquhxbvNVAy6IRtYs7asdyxKUTqG0I5ZqBqnzcBrpnHJCAGw==' crossorigin='anonymous'></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <title>Boolzapp</title>
 </head>
@@ -54,7 +55,8 @@
       <!-- Recent Chat -->
       <div class="chat-container">
       
-        <div class="chat" v-for="(user,index) in users" v-if="user.visible" @click="activeUserIndex = index">
+        <div class="chat" v-for="(user,index) in users" v-if="user.visible" @click="activeUserIndex = index"
+        :class="{'active': activeUserIndex === index}">
 
           <div class="chat-photo">
 
@@ -89,7 +91,7 @@
           <div class="user-last-login">
             
             <span> {{user.name}} </span>
-            <span>Ultimo acesso</span>
+            <span>Ultimo accesso</span>
           </div>
         </div>
         <!-- Icone -->
@@ -103,14 +105,20 @@
       <!-- area dei messaggi -->
       <div class="chatbox"  v-for="(user,index) in users" v-if="index == activeUserIndex">
 
-        <div class="message" :class="text.status == 'sent' ? 'sent' : 'received' " v-for="text in user.messages"> 
+        <div class="message" :class="text.status == 'sent' ? 'sent' : 'received' " v-for="text in user.messages"  @mouseleave="flagVis = false"> 
           <p>{{text.message}}</p>
           <span>{{text.date}}</span>
-          <i class="fa-solid fa-chevron-down" ></i>
-          <!-- <div  class="drop-down-box">
-            <small>Info</small>
-            <small>Cancella Messaggio</small>
-          </div> -->
+
+          <div class="dropdown-container" @click="flagVis = !flagVis" >
+            
+            <i class="fa-solid fa-chevron-down"></i>
+            <div  class="drop-down-box" v-show="flagVis">
+              <small>Info</small>
+              <small>Cancella Messaggio</small>
+            </div>
+
+          </div>
+
         </div> 
 
 

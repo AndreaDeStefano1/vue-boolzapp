@@ -135,7 +135,7 @@ body{
   font-size: 20px;
   color: rgb(103, 106, 108);
 }
-
+/* chat recenti */
 
 .chat-container{
   overflow-y: scroll;
@@ -173,6 +173,9 @@ body{
   align-self: flex-start;
   padding: 5px;
   
+}
+.active{
+  background-color: aliceblue;
 }
 /* RIGHT SIDE */
 /* utente attivo */
@@ -217,7 +220,8 @@ body{
   font-size: 20px;
   margin-right: 20px;
 }
-.message .fa-chevron-down{
+
+.dropdown-container{
   position: absolute;
   top: 12px;
   right: 10px;
@@ -225,20 +229,23 @@ body{
   color: rgb(103, 106, 108);
   display: none;
 }
-.message:hover .fa-chevron-down{
+
+.message:hover .dropdown-container{
   display: block;
 }
- /* .drop-down-box{
+.drop-down-box{
   padding: 10px 0;
   position: absolute;
-  top: 25px;
+  top: 15px;
   right: -20px;
   width: max-content;
   height: max-content;
   background-color: white;
   border: 1px solid black;
   z-index: 1;
-  display: none;
+}
+.fa-chevron-down{
+  font-size: 10px;
 }
 .drop-down-box small{
   display: block;
@@ -248,9 +255,7 @@ body{
 .drop-down-box small:hover{
   background-color: rgb(216, 215, 215);
 } 
-.fa-chevron-down:focus-within .drop-down-box{
-  display: block;
-} */
+
 
 
 /* sezione messaggi */
