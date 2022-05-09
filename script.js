@@ -201,7 +201,10 @@ const app = new Vue({
         }      
       })
       
-    } 
+    },
+    deleteMessage(index){
+      this.users[this.activeUserIndex].messages.splice(index, 1)
+    }
   },
   
 })

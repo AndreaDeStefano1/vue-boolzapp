@@ -244,6 +244,9 @@ body{
   border: 1px solid black;
   z-index: 1;
 }
+.drop-down-box small{
+  cursor: pointer;
+}
 .fa-chevron-down{
   font-size: 10px;
 }
