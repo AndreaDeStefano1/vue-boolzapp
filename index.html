@@ -52,31 +52,28 @@
         <input type="text" v-model.trim='searchInput' @keyup="filteredUsers"  placeholder="Cerca o inizia una nuova chat">
       </div>
 
-      <!-- Recent Chat -->
+      <!-- Chat Recenti -->
       <div class="chat-container">
-      
-        <div class="chat" v-for="(user,index) in users" v-if="user.visible" @click="activeUserIndex = index"
-        :class="{'active': activeUserIndex === index}">
-
+        <!-- Singola chat -->
+        <div class="chat" v-for="(user,index) in users" v-if="user.visible" @click="activeUserIndex = index" :class="{'active': activeUserIndex === index}">
+        <!-- foto profilo conversazione -->
           <div class="chat-photo">
-
             <img :src="`img/avatar${user.avatar}.jpg`" alt="">
           </div>
-  
+          <!-- Ultimo messaggio della conversazione -->
           <div class="chat-text">
             <span class="chat-name">{{user.name}}</span> 
             <span v-for="(text,index) in user.messages" class="last-message" v-if="index == [user.messages.length - 1]">{{text.message}}</span>
           </div>
-  
+          <!-- Data e ora dell ultimo messaggio -->
           <div class="last-message-date" v-for="(date,index) in user.messages" v-if="index == [user.messages.length - 1]">
             <span>{{date.date}}</span>
-
           </div>
 
         </div>
-        
+        <!-- /Singola chat -->
       </div>
-      
+      <!-- /Chat Recenti -->
     </div>
 
 
@@ -88,8 +85,7 @@
         <!-- Immagine chat attiva e ultimo accesso -->
         <div class="user-details" v-for="(user,index) in users" v-show="index == activeUserIndex">
           <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
-          <div class="user-last-login">
-            
+          <div class="user-last-login">            
             <span> {{user.name}} </span>
             <span>Ultimo accesso</span>
           </div>
@@ -104,31 +100,33 @@
 
       <!-- area dei messaggi -->
       <div class="chatbox"  v-for="(user,index) in users" v-if="index == activeUserIndex">
-
+        <!-- Stampo i messaggi -->
         <div class="message" :class="text.status == 'sent' ? 'sent' : 'received' " v-for="(text, index) in user.messages"  @mouseleave="flagVis = false"> 
+          <!-- @mouseleave="flagVis = false" Uscendo dal div del messaggio la flag diventa falsa e il dropdown scompare -->
           <p>{{text.message}}</p>
           <span>{{text.date}}</span>
 
-          <div class="dropdown-container" @click="flagVis = !flagVis" >
-            
+          <!--  Ogni messaggio ha un DropDown menu con 2 opzioni compare al click della chevron -->
+          <div class="dropdown-container" @click="flagVis = !flagVis" >            
             <i class="fa-solid fa-chevron-down"></i>
             <div  class="drop-down-box" v-show="flagVis">
               <small>Info</small>
               <small @click="deleteMessage(index)">Cancella Messaggio</small>
             </div>
-
           </div>
-
+          <!--  /Ogni messaggio ha un DropDown menu con 2 opzioni -->
         </div> 
-
-
+        <!-- /Stampo i messaggi -->
       </div>
+      <!-- /area dei messaggi -->
 
+      <!-- Input per aggiungere nuovi messaggi -->
       <div class="message-bar">
         <i class="fa-solid fa-face-smile"></i>
         <input v-model.trim="newText" @keyup.enter="addMessage(newText)" type="text" placeholder="Scrivi un messaggio">
         <i class="fa-solid fa-microphone"></i>
       </div>
+      <!-- /Input per aggiungere nuovi messaggi -->
 
     </div>
   </div>
