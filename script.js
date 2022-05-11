@@ -194,7 +194,7 @@ const app = new Vue({
     filteredUsers(){
       this.users.forEach(user => {
        const name = user.name.toLowerCase();
-        if(!name.includes(this.searchInput)){
+        if(!name.includes(this.searchInput.toLowerCase())){
           user.visible = false
         } else {
           user.visible = true
